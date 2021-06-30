@@ -7,10 +7,7 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case RECIPES_RECEIVED:
-      return {
-        ...state
-      }
+    
     default:
       return state;
   }

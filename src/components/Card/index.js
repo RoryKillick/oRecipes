@@ -22,7 +22,7 @@ const Card = ({
 Card.propTypes = {
   thumbnail: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  level: PropTypes.string.isRequired,
+  difficulty: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
 };
 
