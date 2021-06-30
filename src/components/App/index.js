@@ -7,6 +7,7 @@ import Home from 'src/containers/Home';
 // import Error from 'src/components/Error';
 
 import Loading from './Loading';
+import data from '../../data';
 
 import './style.scss';
 
@@ -16,7 +17,7 @@ function App(props) {
   }
   return (
     <div className="app">
-      <Menu />
+      <Menu recipes={data}/>
       <Home />
       {/* <Recipe /> */}
       {/* <Error /> */}
