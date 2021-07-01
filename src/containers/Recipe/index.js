@@ -3,9 +3,13 @@ import Recipe from 'src/components/Recipe';
 
 import { findRecipe } from 'src/selectors/recipes';
 
-const mapStateToProps = (state) => ({
-  recipe: findRecipe(state.recipes.list, 'crepes-raffinees'),
-});
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
+
+  return ({
+    recipe: findRecipe(state.recipes.list, ownProps.match.params.slug),
+  })
+}
 
 const mapDispatchToProps = {};
 

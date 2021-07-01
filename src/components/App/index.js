@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
 
-import Menu from 'src/components/Menu';
+import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
-import Recipe from 'src/components/Recipe';
+import Recipe from 'src/containers/Recipe';
 import Error from 'src/components/Error';
 
 import Loading from './Loading';
-import data from '../../data';
+
 
 import './style.scss';
 
@@ -20,20 +20,11 @@ function App(props) {
   }
   return (
       <div className="app">
-        <Menu recipes={data}/>
+        <Menu />
           <Switch>
-            <Route path="/">
-              <Home recipes={data}/>
-            </Route>
-            <Route exact path={`/recipe/crepes-raffinees`}>
-              <Recipe />
-            </Route>
-            <Route exact path={`/recipe/pizza-margherita`}>
-              <Recipe />
-            </Route>
-            <Route>
-              <Error />
-            </Route>
+            <Route path="/" exact component={Home}/>
+            <Route exact path="/recipe/:slug" component={Recipe}/>
+            <Route component={Error}/>
           </Switch>
       </div>
   );
