@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
 
 
 import Menu from 'src/components/Menu';
 import Home from 'src/containers/Home';
-import Recipe from 'src/containers/Recipe';
-// import Error from 'src/components/Error';
+import Recipe from 'src/components/Recipe';
+import Error from 'src/components/Error';
 
 import Loading from './Loading';
 import data from '../../data';
@@ -20,9 +21,20 @@ function App(props) {
   return (
       <div className="app">
         <Menu recipes={data}/>
-        <Home recipes={data}/>
-        <Recipe />
-        {/* <Error /> */}
+          <Switch>
+            <Route path="/">
+              <Home recipes={data}/>
+            </Route>
+            <Route exact path={`/recipe/crepes-raffinees`}>
+              <Recipe />
+            </Route>
+            <Route exact path={`/recipe/pizza-margherita`}>
+              <Recipe />
+            </Route>
+            <Route>
+              <Error />
+            </Route>
+          </Switch>
       </div>
   );
 }
